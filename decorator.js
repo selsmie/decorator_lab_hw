@@ -58,15 +58,16 @@ Decorator.prototype.reducePaintToZero = function (room) {
             
         }
     }
-    console.log('left to paint: ', leftToPaint)
+    // console.log('left to paint: ', leftToPaint)
 }
 
 Decorator.prototype.removeEmptyPaint = function () {
-    for (let i = this.paintCansStock.length - 1; i >= 0; i--) {
-        if (this.paintCansStock[i]['litres'] === 0) {
-            this.paintCansStock.splice(i, 1)
-        }
-    }
+    // for (let i = this.paintCansStock.length - 1; i >= 0; i--) {
+    //     if (this.paintCansStock[i]['litres'] === 0) {
+    //         this.paintCansStock.splice(i, 1)
+    //     }
+    // }
+    this.paintCansStock = this.paintCansStock.filter(Paint => Paint['litres'] !== 0)
 }
 
 module.exports = Decorator
