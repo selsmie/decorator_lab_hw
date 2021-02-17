@@ -19,11 +19,11 @@ Decorator.prototype.totalLitres = function () {
 }
 
 Decorator.prototype.canPaintRoom = function(room) {
-    return this.totalLitres() >= room
+    return this.totalLitres() >= room.area
 }
 
 Decorator.prototype.paintRoom = function (room) {
-    if (this.canPaintRoom(room.area)) {
+    if (this.canPaintRoom(room)) {
         room.painted = true
     }
 }

@@ -42,14 +42,14 @@ describe("Decorator", function () {
 
     it('should be able calc if we can paint the room', function () {
         decorator.addPaintCan(paint)
-        const actual = decorator.canPaintRoom(room.getArea())
+        const actual = decorator.canPaintRoom(room)
         assert.strictEqual(actual, true)
     })
 
     it('should be unable calc if we can paint the room', function () {
         decorator.addPaintCan(paint)
         let room2 = new Room(40)
-        const actual = decorator.canPaintRoom(room2.getArea())
+        const actual = decorator.canPaintRoom(room2)
         assert.strictEqual(actual, false)
     })
 
