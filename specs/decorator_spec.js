@@ -18,12 +18,14 @@ describe("Decorator", function () {
     it('should start with an empty paint stock', function () {
         const actual = decorator.paintCansStock.length
         assert.strictEqual(actual, 0)
+        // assert.deepStrictEqual(decorator.paintCansStock, [])
     })
 
     it('should add new can to paint stock', function () {
         decorator.addPaintCan(paint)
         const actual = decorator.getPaintCans()
         assert.strictEqual(actual, 1)
+        // assert.deepStrictEqual(decorator.paintCansStock, [paint])
     })
 
     it('should be able to get total paint stock', function () {
@@ -99,5 +101,13 @@ describe("Decorator", function () {
         // console.log(decorator.paintCansStock)
         // console.log(room4.painted)
         assert.strictEqual(actual, 20)
+    })
+
+    it('should remove empty can from stock', function () {
+        let paint5 = new Paint(0)
+        decorator.addPaintCan(paint)
+        decorator.addPaintCan(paint5)
+        decorator.removeEmptyPaint()
+        assert.deepStrictEqual(decorator.paintCansStock, [paint])
     })
 })

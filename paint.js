@@ -6,8 +6,16 @@ Paint.prototype.getLitres = function () {
     return this.litres
 }
 
+Paint.prototype.checkEmpty = function () {
+    return !this.litres
+}
+
 Paint.prototype.emptyPaint = function () {
-    return this.litres = 0
+    this.litres = 0
+}
+
+Paint.prototype.decreasePaint = function (litres) {
+    this.litres -= litres
 }
 
 module.exports = Paint

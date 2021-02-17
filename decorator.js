@@ -11,8 +11,8 @@ Decorator.prototype.getPaintCans = function () {
 }
 
 Decorator.prototype.totalLitres = function () {
-    total = 0
-    for (can of this.paintCansStock){
+    let total = 0
+    for (let can of this.paintCansStock){
         total += can.litres
     }
     return total
@@ -24,26 +24,22 @@ Decorator.prototype.canPaintRoom = function(room) {
 
 Decorator.prototype.paintRoom = function (room) {
     if (this.canPaintRoom(room)) {
-        room.painted = true
+        room.finishedPainting()
     }
 }
 
-// Decorator.prototype.reducePaintToZero = function (room) {
-//     let leftToPaint = room.area
-//     for (let paint of this.paintCansStock){
-//         for (let key in paint) {
-//             let litre = paint[key]
-//             if (leftToPaint >= litre) {
-//                 leftToPaint -= litre
-//                 console.log(leftToPaint)
-//                 this.paintCansStock.splice(key, 1)
-//             } 
-//             else {
-//                 litre -= leftToPaint
-//             }
-//         }
-//     }
-// }
+Decorator.prototype.reducePaintToZeroNotes = function (room) {
+    let leftToPaint = room.area
+    for (let paint of this.paintCansStock){
+        if (paint.litre >= leftToPaint) {
+            paint.decreasePaint(leftToPaint)
+        } else {
+            leftToPaint -= paint.leftToPaint
+            paint.emptyPaint()
+        }
+    }
+}
+
 
 Decorator.prototype.reducePaintToZero = function (room) {
     let leftToPaint = room.area

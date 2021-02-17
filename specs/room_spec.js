@@ -9,13 +9,17 @@ describe('Room', function(){
     })
 
     it('get area', function(){
-        let actual = room.getArea();
+        const actual = room.getArea();
         assert.strictEqual(actual, 9)
+    })
+
+    it('should start not painted', function () {
+        assert.strictEqual(room.painted, false)
     })
 
     it('finished painting', function(){
         room.finishedPainting();
-        let actual = room.painted;
+        const actual = room.painted;
         assert.strictEqual(actual, true)
     })
 
